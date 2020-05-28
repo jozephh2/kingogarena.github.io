@@ -1,0 +1,20 @@
+{
+    "1": {
+        "method": "insert",
+        "params": [
+            "brilliantdiscord_behavior",
+            {
+                "key": "sync_nicknames",
+                "value": 1,
+                "default": 1
+            }
+        ]
+    },
+    "2": {
+        "method": "delete",
+        "params": [
+            "brilliantdiscord_behavior",
+            "`key`='approval_validity'"
+        ]
+    }
+}

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<javascript app="brilliantdiscord">
+ <file javascript_app="brilliantdiscord" javascript_location="admin" javascript_path="controllers/config" javascript_name="ips.config.guildHelper.js" javascript_type="controller" javascript_version="10036" javascript_position="1000050"><![CDATA[;( function($, _, undefined){
+    "use strict";
+
+    ips.controller.register('brilliantdiscord.admin.config.guildHelper', {
+        exchangeURL: null,
+        initialize: function () {
+            this.exchangeURL = this.scope.data('exchange-url');
+            this.on( 'click', '[data-action="refreshGuilds"]', this.refreshGuilds );
+            this.loadGuilds();
+        },
+
+        refreshGuilds: function(e) {
+            if ($('[data-action="refreshGuilds"]').attr('disabled') !== 'disabled') {
+                this.loadGuilds();
+            }
+        },
+
+        loadGuilds: function () {
+            $('[data-action="refreshGuilds"]')
+                .attr('disabled', 'disabled')
+                .toggleClass('ipsCursor_locked');
+            var place = this.scope.find('#brdsGuildsList');
+            var field_name = this.scope.data('field-name');
+            var selected = this.scope.data('selected');
+            place.html($('<div>', {"class": "brdsGuildHelper_dummy ipsLoading"}));
+            ips.getAjax()( this.exchangeURL )
+                .done(function (data, __unused__, jqXHR) {
+                    if (!data.guilds.length) {
+                        place.html(ips.templates.render('brilliantdiscord.guildhelper.noguilds', {
+                            no_guilds_message: ips.getString('brilliantdiscord_no_guilds_found')
+                        }))
+                    } else {
+                        place.html('');
+                        for (let i = 0; i < data.guilds.length; i++) {
+                            place.append(ips.templates.render('brilliantdiscord.guildhelper.guild', {
+                                guild: data.guilds[i],
+                                field_name: field_name,
+                                selected: data.guilds[i].id == selected
+                            }));
+                        }
+                    }
+                })
+                .fail(function (jqXHR) {
+                    if (jqXHR.status === 429) {
+                        ips.ui.alert.show({
+                            type: 'alert',
+                            icon: 'warn',
+                            message: JSON.parse(jqXHR.responseText)['message']
+                        });
+                    } else {
+                        ips.ui.alert.show({
+                            type: 'alert',
+                            icon: 'warn',
+                            message: ips.getString("brilliantdiscord_generic_error")
+                        });
+                    }
+                })
+                .always(function() {
+                    $('[data-action="refreshGuilds"]')
+                        .toggleClass('ipsCursor_locked')
+                        .removeAttr('disabled');
+                })
+        }
+    });
+}(jQuery, _));]]></file>
+ <file javascript_app="brilliantdiscord" javascript_location="admin" javascript_path="templates" javascript_name="ips.templates.config.js" javascript_type="template" javascript_version="10036" javascript_position="1000100"><![CDATA[ips.templates.set('brilliantdiscord.guildhelper.guild', "\
+    <div class='ipsPad ipsAreaBackground_light'>\
+        <span class='ipsCustomInput'>\
+            <input id='elField_{{field_name}}' type='radio' role='radio' name='{{field_name}}' value='{{guild.id}}' {{#selected}}checked aria-checked='true'{{/selected}}{{^guild.enabled}}disabled aria-disabled='true'{{/guild.enabled}}>\
+            <span></span>\
+        </span>\
+        <h2 class='ipsType_reset ipsType_large'>{{guild.name}} ({{guild.id}})</h2>\
+        <div class='ipsField_fieldList_content'>\
+            <ul>\
+                {{#guild.messages}}\
+                    <li class='brdsList{{#success}}Success{{/success}}{{^success}}Fail{{/success}}'>{{content}}</li>\
+                {{/guild.messages}}\
+            </ul>\
+        </div>\
+    </div>\
+");
+
+ips.templates.set('brilliantdiscord.guildhelper.noguilds', "\
+    <div class='ipsPad'><span class='ipsType_light'>{{no_guilds_message}}</span></div>\
+");]]></file>
+</javascript>

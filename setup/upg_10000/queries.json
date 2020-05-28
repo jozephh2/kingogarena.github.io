@@ -1,0 +1,788 @@
+{
+    "1": {
+        "method": "createTable",
+        "params": [
+            {
+                "name": "brilliantdiscord_ratelimits",
+                "columns": {
+                    "endpoint": {
+                        "name": "endpoint",
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": false,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    },
+                    "major_param": {
+                        "name": "major_param",
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": true,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    },
+                    "limit": {
+                        "name": "limit",
+                        "type": "TINYINT",
+                        "length": null,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": true,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    },
+                    "remaining": {
+                        "name": "remaining",
+                        "type": "TINYINT",
+                        "length": null,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": false,
+                        "default": "0",
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    },
+                    "reset_time": {
+                        "name": "reset_time",
+                        "type": "INT",
+                        "length": 11,
+                        "decimals": null,
+                        "values": [],
+                        "allow_null": false,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    },
+                    "identifier": {
+                        "name": "identifier",
+                        "type": "TINYTEXT",
+                        "length": null,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": false,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    },
+                    "id": {
+                        "name": "id",
+                        "type": "BIGINT",
+                        "length": null,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": true,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": true,
+                        "zerofill": false,
+                        "primary": true,
+                        "auto_increment": true,
+                        "binary": false
+                    }
+                },
+                "indexes": {
+                    "param": {
+                        "type": "key",
+                        "name": "param",
+                        "columns": [
+                            "major_param"
+                        ],
+                        "length": [
+                            250
+                        ]
+                    },
+                    "identifier": {
+                        "type": "key",
+                        "name": "identifier",
+                        "columns": [
+                            "identifier"
+                        ],
+                        "length": [
+                            250
+                        ]
+                    },
+                    "endpoint": {
+                        "type": "key",
+                        "name": "endpoint",
+                        "columns": [
+                            "endpoint"
+                        ],
+                        "length": [
+                            250
+                        ]
+                    },
+                    "PRIMARY": {
+                        "type": "primary",
+                        "name": "PRIMARY",
+                        "columns": [
+                            "id"
+                        ],
+                        "length": [
+                            null
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    "2": {
+        "method": "createTable",
+        "params": [
+            {
+                "name": "brilliantdiscord_xinvites",
+                "columns": {
+                    "code": {
+                        "name": "code",
+                        "type": "TINYTEXT",
+                        "length": null,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": false,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    },
+                    "position": {
+                        "name": "position",
+                        "type": "INT",
+                        "length": 3,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": false,
+                        "default": "0",
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    },
+                    "id": {
+                        "name": "id",
+                        "type": "BIGINT",
+                        "length": 20,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": false,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": true,
+                        "zerofill": false,
+                        "primary": true,
+                        "auto_increment": true,
+                        "binary": false
+                    },
+                    "expiration": {
+                        "name": "expiration",
+                        "type": "INT",
+                        "length": 11,
+                        "decimals": null,
+                        "values": [],
+                        "allow_null": false,
+                        "default": "-1",
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    }
+                },
+                "indexes": {
+                    "code": {
+                        "type": "unique",
+                        "name": "code",
+                        "columns": [
+                            "code"
+                        ],
+                        "length": [
+                            250
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    "3": {
+        "method": "createTable",
+        "params": [
+            {
+                "name": "brilliantdiscord_groupdata",
+                "columns": {
+                    "id": {
+                        "name": "id",
+                        "type": "BIGINT",
+                        "length": "20",
+                        "unsigned": true,
+                        "zerofill": false,
+                        "binary": false,
+                        "allow_null": false,
+                        "default": null,
+                        "auto_increment": true,
+                        "comment": "ID Number"
+                    },
+                    "discord_roles": {
+                        "name": "discord_roles",
+                        "type": "TEXT",
+                        "length": null,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": true,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    },
+                    "bypass_approval": {
+                        "name": "bypass_approval",
+                        "type": "BIT",
+                        "length": null,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": false,
+                        "default": "0",
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    },
+                    "group_id": {
+                        "name": "group_id",
+                        "type": "BIGINT",
+                        "length": null,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": false,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": true,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    }
+                },
+                "indexes": {
+                    "PRIMARY": {
+                        "type": "primary",
+                        "name": "PRIMARY",
+                        "columns": [
+                            "id"
+                        ],
+                        "length": [
+                            null
+                        ]
+                    },
+                    "group": {
+                        "type": "unique",
+                        "name": "group",
+                        "columns": [
+                            "group_id"
+                        ],
+                        "length": [
+                            null
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    "4": {
+        "method": "createTable",
+        "params": [
+            {
+                "name": "brilliantdiscord_behavior",
+                "columns": {
+                    "id": {
+                        "name": "id",
+                        "type": "BIGINT",
+                        "length": "20",
+                        "unsigned": true,
+                        "zerofill": false,
+                        "binary": false,
+                        "allow_null": false,
+                        "default": null,
+                        "auto_increment": true,
+                        "comment": "ID Number"
+                    },
+                    "key": {
+                        "name": "key",
+                        "type": "TINYTEXT",
+                        "length": null,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": false,
+                        "default": null,
+                        "comment": "Setting key",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    },
+                    "value": {
+                        "name": "value",
+                        "type": "TEXT",
+                        "length": null,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": true,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    },
+                    "default": {
+                        "name": "default",
+                        "type": "TEXT",
+                        "length": null,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": true,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    },
+                    "category": {
+                        "name": "category",
+                        "type": "INT",
+                        "length": null,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": false,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    }
+                },
+                "indexes": {
+                    "PRIMARY": {
+                        "type": "primary",
+                        "name": "PRIMARY",
+                        "columns": [
+                            "id"
+                        ],
+                        "length": [
+                            null
+                        ]
+                    },
+                    "key": {
+                        "type": "unique",
+                        "name": "key",
+                        "columns": [
+                            "key"
+                        ],
+                        "length": [
+                            250
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    "5": {
+        "method": "createTable",
+        "params": [
+            {
+                "name": "brilliantdiscord_logs",
+                "columns": {
+                    "id": {
+                        "name": "id",
+                        "type": "BIGINT",
+                        "length": "20",
+                        "unsigned": true,
+                        "zerofill": false,
+                        "binary": false,
+                        "allow_null": false,
+                        "default": null,
+                        "auto_increment": true,
+                        "comment": "ID Number"
+                    },
+                    "message": {
+                        "name": "message",
+                        "type": "TINYTEXT",
+                        "length": null,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": true,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    },
+                    "code": {
+                        "name": "code",
+                        "type": "INT",
+                        "length": 11,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": true,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    },
+                    "member": {
+                        "name": "member",
+                        "type": "BIGINT",
+                        "length": 20,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": false,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    },
+                    "exception_data": {
+                        "name": "exception_data",
+                        "type": "TEXT",
+                        "length": null,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": true,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    },
+                    "time": {
+                        "name": "time",
+                        "type": "INT",
+                        "length": 11,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": false,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    }
+                },
+                "indexes": {
+                    "PRIMARY": {
+                        "type": "primary",
+                        "name": "PRIMARY",
+                        "columns": [
+                            "id"
+                        ],
+                        "length": [
+                            null
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    "6": {
+        "method": "createTable",
+        "params": [
+            {
+                "name": "brilliantdiscord_approval_actions",
+                "columns": {
+                    "id": {
+                        "name": "id",
+                        "type": "BIGINT",
+                        "length": "20",
+                        "unsigned": true,
+                        "zerofill": false,
+                        "binary": false,
+                        "allow_null": false,
+                        "default": null,
+                        "auto_increment": true,
+                        "comment": "ID Number"
+                    },
+                    "target_member": {
+                        "name": "target_member",
+                        "type": "BIGINT",
+                        "length": null,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": false,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": true,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    },
+                    "member": {
+                        "name": "member",
+                        "type": "BIGINT",
+                        "length": 20,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": false,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": true,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    },
+                    "type": {
+                        "name": "type",
+                        "type": "INT",
+                        "length": null,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": false,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": true,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    },
+                    "additional_data": {
+                        "name": "additional_data",
+                        "type": "TEXT",
+                        "length": null,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": true,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    },
+                    "timestamp": {
+                        "name": "timestamp",
+                        "type": "INT",
+                        "length": null,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": false,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    }
+                },
+                "indexes": {
+                    "PRIMARY": {
+                        "type": "primary",
+                        "name": "PRIMARY",
+                        "columns": [
+                            "id"
+                        ],
+                        "length": [
+                            null
+                        ]
+                    },
+                    "target_member": {
+                        "type": "key",
+                        "name": "target_member",
+                        "columns": [
+                            "target_member"
+                        ],
+                        "length": [
+                            null
+                        ]
+                    },
+                    "timestamp": {
+                        "type": "key",
+                        "name": "timestamp",
+                        "columns": [
+                            "timestamp"
+                        ],
+                        "length": [
+                            null
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    "7": {
+        "method": "createTable",
+        "params": [
+            {
+                "name": "brilliantdiscord_notifications",
+                "columns": {
+                    "id": {
+                        "name": "id",
+                        "type": "BIGINT",
+                        "length": "20",
+                        "unsigned": true,
+                        "zerofill": false,
+                        "binary": false,
+                        "allow_null": false,
+                        "default": null,
+                        "auto_increment": true,
+                        "comment": "ID Number"
+                    },
+                    "name": {
+                        "name": "name",
+                        "type": "TINYTEXT",
+                        "length": null,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": false,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    },
+                    "position": {
+                        "name": "position",
+                        "type": "INT",
+                        "length": null,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": true,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    },
+                    "item_class": {
+                        "name": "item_class",
+                        "type": "TINYTEXT",
+                        "length": null,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": false,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    },
+                    "conditions": {
+                        "name": "conditions",
+                        "type": "TEXT",
+                        "length": null,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": true,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    },
+                    "enabled": {
+                        "name": "enabled",
+                        "type": "BIT",
+                        "length": null,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": false,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    },
+                    "notification_settings": {
+                        "name": "notification_settings",
+                        "type": "TEXT",
+                        "length": null,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": true,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    },
+                    "webhook": {
+                        "name": "webhook",
+                        "type": "TINYTEXT",
+                        "length": null,
+                        "decimals": null,
+                        "values": null,
+                        "allow_null": false,
+                        "default": null,
+                        "comment": "",
+                        "unsigned": false,
+                        "zerofill": false,
+                        "auto_increment": false,
+                        "binary": false
+                    }
+                },
+                "indexes": {
+                    "PRIMARY": {
+                        "type": "primary",
+                        "name": "PRIMARY",
+                        "columns": [
+                            "id"
+                        ],
+                        "length": [
+                            null
+                        ]
+                    },
+                    "item_class": {
+                        "type": "key",
+                        "name": "item_class",
+                        "columns": [
+                            "item_class"
+                        ],
+                        "length": [
+                            250
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

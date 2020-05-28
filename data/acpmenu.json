@@ -1,0 +1,42 @@
+{
+  "general": {
+    "configuration": {
+      "tab": "brilliantdiscord",
+      "controller": "configuration",
+      "do": "",
+      "restriction": "brds_configuration_manage"
+    }
+  },
+  "manage": {
+    "aprqueue": {
+      "tab": "brilliantdiscord",
+      "controller": "approvalqueue",
+      "do": "",
+      "restriction": "brds_aprqueue_manage"
+    },
+    "notifications": {
+      "tab": "brilliantdiscord",
+      "controller": "notifications",
+      "do": "",
+      "restriction": "brds_notifications_manage"
+    },
+    "behavior": {
+      "tab": "brilliantdiscord",
+      "controller": "behavior",
+      "do": "",
+      "restriction": "brds_behavior_manage"
+    },
+    "xinvites": {
+      "tab": "brilliantdiscord",
+      "controller": "xinvites",
+      "do": "",
+      "restriction": "brds_xinvites_manage"
+    },
+    "logs": {
+      "tab": "brilliantdiscord",
+      "controller": "logs",
+      "do": "",
+      "restriction": "brds_logs_manage"
+    }
+  }
+}

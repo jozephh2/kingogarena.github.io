@@ -1,0 +1,42 @@
+{
+    "loginHandler": {
+        "type": "C",
+        "class": "\\IPS\\Login\\Handler"
+    },
+    "group": {
+        "type": "C",
+        "class": "\\IPS\\Member\\Group"
+    },
+    "member": {
+        "type": "C",
+        "class": "\\IPS\\Member"
+    },
+    "adminMemberTab": {
+        "type": "C",
+        "class": "\\IPS\\core\\extensions\\core\\MemberACPProfileTabs\\Main"
+    },
+    "contentNotifications": {
+        "type": "C",
+        "class": "\\IPS\\Content\\Item"
+    },
+    "apptips": {
+        "type": "S",
+        "class": "\\IPS\\Theme\\class_core_admin_global"
+    },
+    "commentNotifications": {
+        "type": "C",
+        "class": "\\IPS\\Content\\Comment"
+    },
+    "reviewNotifications": {
+        "type": "C",
+        "class": "\\IPS\\Content\\Review"
+    },
+    "standardDispatcherCss": {
+        "type": "C",
+        "class": "\\IPS\\Dispatcher\\Standard"
+    },
+    "lateNotifications": {
+        "type": "C",
+        "class": "\\IPS\\Content"
+    }
+}

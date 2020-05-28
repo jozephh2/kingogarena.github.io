@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language>
+ <app key="brilliantdiscord" version="10036">
+  <word key="__app_brilliantdiscord" js="0">Brilliant Discord Integration</word>
+  <word key="menutab__brilliantdiscord" js="0">Brilliant Discord</word>
+  <word key="menutab__brilliantdiscord_icon" js="0">diamond</word>
+  <word key="menu__brilliantdiscord_general" js="0">General</word>
+  <word key="menu__brilliantdiscord_general_configuration" js="0">Configuration</word>
+  <word key="menu__brilliantdiscord_manage" js="0"><![CDATA[Behavior & Management]]></word>
+  <word key="menu__brilliantdiscord_manage_xinvites" js="0">Magic Invites</word>
+  <word key="menu__brilliantdiscord_manage_behavior" js="0">Behavior Settings</word>
+  <word key="module__brilliantdiscord_xinvites" js="0">Invites</word>
+  <word key="menu__brilliantdiscord_manage_logs" js="0">Logs</word>
+  <word key="menu__brilliantdiscord_manage_aprqueue" js="0">Approval Queue</word>
+  <word key="menu__brilliantdiscord_manage_notifications" js="0">Notifications</word>
+  <word key="brilliantdiscord_legit_badge" js="0">Brilliant</word>
+  <word key="brilliantdiscord_login_title" js="0">Discord</word>
+  <word key="brilliantdiscord_use_discord_username" js="0">Display name</word>
+  <word key="brilliantdiscord_login_discord_username" js="0">Discord username</word>
+  <word key="brilliantdiscord_login_title_info" js="0"><![CDATA[These settings depend on Brilliant Discord Integration configuration. You can modify them <a href="{internal.app=brilliantdiscord&module=general&controller=configuration}">here</a>.]]></word>
+  <word key="brilliantdiscord_login_discord" js="0">Login with Discord</word>
+  <word key="brilliantdiscord_method_description" js="0"><![CDATA[Method state depends on application's state and its <a href='{internal.app=brilliantdiscord&module=general&controller=configuration}'>configuration's</a> state.]]></word>
+  <word key="brilliantdiscord_configuration" js="0">Configuration</word>
+  <word key="brilliantdiscord_configure" js="0">Configure</word>
+  <word key="brilliantdiscord_configure_next" js="0">Next step</word>
+  <word key="brilliantdiscord_configure_description" js="0">We just need more information to connect your community to Discord.</word>
+  <word key="brilliantdiscord_configure_start_advanced" js="0">Start configuration</word>
+  <word key="brilliantdiscord_wza_title" js="0">Configuration</word>
+  <word key="brilliantdiscord_wza_step1" js="0">Authorization data</word>
+  <word key="brilliantdiscord_wza_step2" js="0">Select your server</word>
+  <word key="brilliantdiscord_wza_step3" js="0">Required behavior settings</word>
+  <word key="brilliantdiscord_wza_step4" js="0">All done!</word>
+  <word key="brilliantdiscord_wza_app_info" js="0"><![CDATA[You can create new Discord application (or find existing one) <a target="_blank" href="https://discordapp.com/developers/applications/">here</a>.]]></word>
+  <word key="brilliantdiscord_wza_redi_uri_info" js="0"><![CDATA[<b>Add the following Redirect URI in your Discord application</b> (OAuth2 tab): <pre>{internal.interface.oauth/callback/}</pre>Validation is not provided. However, invalid configuration will cause invalid application's behavior.]]></word>
+  <word key="brilliantdiscord_wza_client_id" js="0">Client ID</word>
+  <word key="brilliantdiscord_cid_automatic" js="0">Client ID is obtained automatically.</word>
+  <word key="brilliantdiscord_wza_client_secret" js="0">Client secret</word>
+  <word key="brilliantdiscord_wza_client_secret_desc" js="0"><![CDATA[Can be found in <b>Application</b> tab.<br>Used to match users' Discord accounts with account on your community. Validation is not provided. However, invalid value will cause invalid application's behavior.]]></word>
+  <word key="brilliantdiscord_wza_token" js="0">Token</word>
+  <word key="brilliantdiscord_wza_token_desc" js="0"><![CDATA[Can be found in <b>Bot</b> tab (after creating the bot using "Add Bot" button).<br>Brilliant Discord Integration uses bot's token to obtain Client ID, and to integrate with your Discord server (optional). You can always edit this setting later.]]></word>
+  <word key="brilliantdiscord_error_invalid_token" js="0">Invalid token.</word>
+  <word key="brilliantdiscord_error_inconsistent_token" js="0">Inconsistent data; token doesn't correspond to current application.</word>
+  <word key="brilliantdiscord_wza_guild" js="0">Server</word>
+  <word key="brilliantdiscord_wza_guild_desc" js="0">Make sure to move bot's role to the top.</word>
+  <word key="brilliantdiscord_configurable_later" js="0">You can configure these settings later.</word>
+  <word key="brilliantdiscord_wza_approval" js="0">Enable approval queue?</word>
+  <word key="brilliantdiscord_wza_autosync" js="0">Enable periodical synchronization?</word>
+  <word key="brilliantdiscord_wza_autosync_desc" js="0">Recommended.</word>
+  <word key="brilliantdiscord_all_done" js="0">All done!</word>
+  <word key="brilliantdiscord_all_done_desc" js="0">Just click the button below to save your configuration. Remember, you can always edit it later.</word>
+  <word key="brilliantdiscord_error_permissions" js="0">Missing bot permissions: %s and/or ADMINISTRATOR.</word>
+  <word key="brilliantdiscord_error_no_guild_access" js="0">Bot doesn't have access to this server anymore.</word>
+  <word key="brilliantdiscord_configuration_clear" js="0">Clear data</word>
+  <word key="brilliantdiscord_configuration_reconfigure" js="0">Reconfigure</word>
+  <word key="brilliantdiscord_status_ok" js="0">No problems detected.</word>
+  <word key="brilliantdiscord_status_found_problems" js="0">Found some problems:</word>
+  <word key="brilliantdiscord_status_bad_token" js="0"><![CDATA[The token you had specified doesn't work anymore. <a href="#token">Edit the token below</a> or <a href="{internal.app=brilliantdiscord&module=general&controller=configuration&do=advancedSetup&_new=1}">reconfigure</a>.]]></word>
+  <word key="brilliantdiscord_status_guild_lost" js="0"><![CDATA[Lost connection to the server. <a href="{internal.app=brilliantdiscord&module=general&controller=configuration&do=advancedSetup&_new=1}">Reconfigure?</a>]]></word>
+  <word key="brilliantdiscord_rate_limited" js="0">Site is rate limited. Try again in %s.</word>
+  <word key="brilliantdiscord_rate_limited_global" js="0">Site is globally rate limited. Try again in %s.</word>
+  <word key="brilliantdiscord_guilds_select" js="0">Select server</word>
+  <word key="brilliantdiscord_guilds_refresh" js="0">Refresh</word>
+  <word key="brilliantdiscord_guilds_add" js="0">Add new server</word>
+  <word key="brilliantdiscord_guild_perms_ok" js="0">All required permissions granted.</word>
+  <word key="brilliantdiscord_guild_missing_perm" js="0">Missing permission: %s</word>
+  <word key="brilliantdiscord_wza_enable_deep1" js="0">Enable server integration?</word>
+  <word key="brilliantdiscord_invites" js="0">Invites</word>
+  <word key="brilliantdiscord_invite" js="0">Invite</word>
+  <word key="brilliantdiscord_invite_not_unique" js="0">Invite code must be unique.</word>
+  <word key="brilliantdiscord_f_xinvites_code" js="0">Code</word>
+  <word key="brilliantdiscord_f_xinvites_expiration" js="0">Expires at</word>
+  <word key="brilliantdiscord_invite_perm__label" js="0">Permissions</word>
+  <word key="brilliantdiscord_invite_perm__view" js="0">Use</word>
+  <word key="brilliantdiscord_invite_perm__bypass_approval" js="0">Bypass approval queue (if enabled)</word>
+  <word key="task__cleanExpiredData" js="0">Deletes Brilliant Discord Integration's expired data.</word>
+  <word key="brilliantdiscord_invite_join" js="0">Join our Discord server</word>
+  <word key="brilliantdiscord_invite_accept_unlinked" js="0">Login to Discord and Accept</word>
+  <word key="brilliantdiscord_invite_accept" js="0"><![CDATA[Accept as <b>%s</b>]]></word>
+  <word key="brilliantdiscord_invite_expires_in" js="0">Invite expires in %s</word>
+  <word key="brilliantdiscord_invite_expires_never" js="0">Invite never expires</word>
+  <word key="brilliantdiscord_invite_success" js="0">Success! You are now a member of our Discord Server.</word>
+  <word key="brilliantdiscord_invite_heading" js="0">Join %s's Discord server</word>
+  <word key="brilliantdiscord_members_online" js="0">%s online</word>
+  <word key="brilliantdiscord_members_overall" js="0">%s members</word>
+  <word key="brilliantdiscord_info_account_link" js="0">Your account on this site will be linked with your Discord account.</word>
+  <word key="brilliantdiscord_invite_banned" js="0">Your Discord account is banned on this server.</word>
+  <word key="brilliantdiscord_invite_already_member" js="0">You are already member of our Discord server.</word>
+  <word key="brilliantdiscord_invite_guest_message" js="0"><![CDATA[Please <a href='%s'>sign in</a> or <a href='%s'>register</a> to proceed.]]></word>
+  <word key="brilliantdiscord_server_icon" js="0">Server icon</word>
+  <word key="brilliantdiscord_invite_url" js="0">Invite URL</word>
+  <word key="brilliantdiscord_invite_use_noperm" js="0">You have no permission to use this invite.</word>
+  <word key="block_discordWidget" js="0">Discord Widget</word>
+  <word key="block_discordWidget_desc" js="0">A simple widget for your Discord server.</word>
+  <word key="brilliantdiscord_widget_type" js="0">Widget type</word>
+  <word key="brilliantdiscord_widget_type_banner1" js="0">Discord: Banner 1</word>
+  <word key="brilliantdiscord_widget_type_banner2" js="0">Discord: Banner 2</word>
+  <word key="brilliantdiscord_widget_type_banner3" js="0">Discord: Banner 3</word>
+  <word key="brilliantdiscord_widget_type_banner4" js="0">Discord: Banner 4</word>
+  <word key="brilliantdiscord_widget_invite" js="0">Invite</word>
+  <word key="brilliantdiscord_widget_invite_desc" js="0">User will be redirected to this invite when he clicks the widget.</word>
+  <word key="brilliantdiscord_widget_no_invite" js="0">No invite</word>
+  <word key="group__brilliantdiscord_groupSettings" js="0">Discord Settings</word>
+  <word key="brilliantdiscord_group_bypass_approval" js="0">Can bypass approval?</word>
+  <word key="brilliantdiscord_group_bypass_approval_desc" js="0">If enabled, users with this group won't need administrator approval to join the Discord server, even if an invite requires it.</word>
+  <word key="brilliantdiscord_group_roles" js="0">Roles</word>
+  <word key="brilliantdiscord_group_roles_desc" js="0">Users in this group will have these roles assigned on the Discord Server.</word>
+  <word key="brilliantdiscord_behavior" js="0">Behavior</word>
+  <word key="brilliantdiscord_behavior_form_basic_role" js="0">General role</word>
+  <word key="brilliantdiscord_behavior_form_basic_role_desc" js="0">This role will be given to every community member on your Discord Server.</word>
+  <word key="brilliantdiscord_behavior_form_enable_approval" js="0">Enable approval queue?</word>
+  <word key="brilliantdiscord_behavior_form_approval_validity" js="0">Approval lasts for:</word>
+  <word key="brilliantdiscord_behavior_form_approval_validity_until_revoked" js="0">Until revoked in ACP</word>
+  <word key="brilliantdiscord_behavior_form_approval_validity_one_time" js="0">One time</word>
+  <word key="brilliantdiscord_behavior_form_autosync" js="0">Enable automatic member synchronization?</word>
+  <word key="brilliantdiscord_behavior_form_autosync_desc" js="0">Disabling this option is not recommended. Members are synchronized every hour. </word>
+  <word key="brilliantdiscord_member_info" js="0">Discord Member</word>
+  <word key="brilliantdiscord_member_guild" js="0">Server member</word>
+  <word key="brilliantdiscord_member_status" js="0">Status</word>
+  <word key="brilliantdiscord_member_account_link" js="0">Account status</word>
+  <word key="brilliantdiscord_member_account_ok" js="0">OK</word>
+  <word key="brilliantdiscord_member_actions" js="0">Actions</word>
+  <word key="brilliantdiscord_member_no_actions" js="0">No actions available</word>
+  <word key="brilliantdiscord_member_force_join" js="0">Add member to the server</word>
+  <word key="brilliantdiscord_member_kick" js="0">Kick from Discord server</word>
+  <word key="brilliantdiscord_member_sync" js="0">Synchronize server member</word>
+  <word key="brilliantdiscord_member_approve" js="0">Approve</word>
+  <word key="brilliantdiscord_member_approval_logs" js="0">Approval Logs</word>
+  <word key="brilliantdiscord_sync_success" js="0">Member synchronized successfully.</word>
+  <word key="brilliantdiscord_kick_success" js="0">Member kicked successfully.</word>
+  <word key="brilliantdiscord_forcejoin_success" js="0">Member is now a part of the Discord server.</word>
+  <word key="brilliantdiscord_forcejoin_already_member" js="0">Member is already member of the Discord server.</word>
+  <word key="brilliantdiscord_forcejoin_banned" js="0">Member is banned on the Discord server.</word>
+  <word key="r__brds_configuration" js="0">Configuration</word>
+  <word key="r__brds_configuration_manage" js="0">Can view and edit configuration?</word>
+  <word key="r__brds_configuration_clear_data" js="0">Can clear application's data?</word>
+  <word key="r__brds_xinvites" js="0">Magic Invites</word>
+  <word key="r__brds_xinvites_manage" js="0">Can manage Magic Invites?</word>
+  <word key="r__brds_behavior" js="0">Behavior</word>
+  <word key="r__brds_behavior_manage" js="0">Can manage application's behavior?</word>
+  <word key="r__brds_logs" js="0">Logs</word>
+  <word key="r__brds_logs_manage" js="0">Can access application's logs?</word>
+  <word key="r__brds_aprqueue" js="0">Approval Queue</word>
+  <word key="r__brds_aprqueue_manage" js="0">Can approve users and see approval logs?</word>
+  <word key="r__brds_aprqueue_give_lifetime" js="0">Can approve users permanently (until approval is revoked manually)?</word>
+  <word key="r__brds_notifications" js="0">Notifications</word>
+  <word key="r__brds_notifications_manage" js="0">Can manage Discord notifications settings?</word>
+  <word key="brilliantdiscord_cldf_title" js="0">Clear Application Data</word>
+  <word key="brilliantdiscord_cldf_another" js="0">Another data</word>
+  <word key="brilliantdiscord_cldf_full_conf" js="0">Delete full configuration?</word>
+  <word key="brilliantdiscord_cldf_full_conf_desc" js="0">Includes authorization data.</word>
+  <word key="brilliantdiscord_cldf_groups" js="0">Group data</word>
+  <word key="brilliantdiscord_cldf_configuration" js="0">Configuration</word>
+  <word key="brilliantdiscord_cldf_configuration_desc" js="0">To delete authorization data, use the toggle above.</word>
+  <word key="brilliantdiscord_cldf_behavior" js="0">Behavior (reset to default)</word>
+  <word key="brilliantdiscord_cldf_ratelimits" js="0">Rate limit data</word>
+  <word key="brilliantdiscord_cldf_member_links" js="0">Discord links (NOT RECOMMENDED)</word>
+  <word key="brilliantdiscord_cldf_member_links_desc" js="0">Users that have registered with Discord won't be able to login, until they don't create a password.</word>
+  <word key="brilliantdiscord_cldf_logs" js="0">Logs</word>
+  <word key="brilliantdiscord_cldf_warning" js="0">This is irreversible. Do not alter change if you do not know what you are doing.</word>
+  <word key="brilliantdiscord_cldf_proceed" js="0">Continue</word>
+  <word key="brilliantdiscord_configuration_richdiscord" js="0"><![CDATA[We detected an already configured Rich Discord Integration on your site. <a href="{internal.app=brilliantdiscord&module=general&controller=configuration&do=richdiscord&_new=1}">Click here to migrate the configuration to Brilliant Discord Integration.</a>]]></word>
+  <word key="brilliantdiscord_configuration_richdiscord_err" js="0">Rich Discord Integration not found.</word>
+  <word key="brilliantdiscord_richdiscord_notinguild" js="0"><![CDATA[The application configured in Rich Discord Integration is not a member of configured server anymore.<br>You can try to <a target="_blank" href="{internal.app=richdiscord&module=general&controller=configuration}">edit the configuration</a> and then refresh this page, or click the button below to save only authorization information (you can always reconfigure this app and enable server integration).]]></word>
+  <word key="brilliantdiscord_migrate_title" js="0">Migrate from Rich Discord Integration</word>
+  <word key="brilliantdiscord_migrate_step1" js="0">Redirect URI</word>
+  <word key="brilliantdiscord_configuration_richdiscord_outdated" js="0">Invalid configuration. Can't access Discord API.</word>
+  <word key="brilliantdiscord_migrate_app_info" js="0">Application</word>
+  <word key="brilliantdiscord_app_id" js="0"><![CDATA[<strong>App ID</strong>: %s]]></word>
+  <word key="brilliantdiscord_app_owner" js="0"><![CDATA[<strong>Owner</strong>: %s]]></word>
+  <word key="brilliantdiscord_migrate_step2" js="0">Permissions</word>
+  <word key="brilliantdiscord_migrate_permissions" js="0">Permissions</word>
+  <word key="brilliantdiscord_migrate_permissions_desc" js="0">Brilliant Discord Integration requires a bit more permissions, because of its functionality (current and planned).</word>
+  <word key="brilliantdiscord_error_migrate_permissions" js="0">Incorect permissions.</word>
+  <word key="brilliantdiscord_migrate_guild" js="0">Migrate Discord server data?</word>
+  <word key="brilliantdiscord_migrate_guild_desc" js="0">Next step of this wizard will be skipped if you won't migrate Discord server's data.</word>
+  <word key="brilliantdiscord_migrate_only_login" js="0">Migrate only login data</word>
+  <word key="brilliantdiscord_migrate_step3" js="0">Server settings</word>
+  <word key="brilliantdiscord_migrate_aprqueue" js="0">Migrate approval queue data?</word>
+  <word key="brilliantdiscord_migrate_aprqueue_desc" js="0">If you won't do this, members waiting for approval will be kicked.</word>
+  <word key="brilliantdiscord_migrate_aprqueue_action" js="0">Action to take with waiting members</word>
+  <word key="brilliantdiscord_migrate_aprqueue_action_desc" js="0">In Brilliant Discord Integration, the approval queue works in a different way than Rich Discord Integration. Instead of adding members to the server without any role, the member sends request for approval (through the Magic Invites system), and when you accept it, they're added to the Discord server.</word>
+  <word key="brilliantdiscord_migrate_aprqueue_kickandmove" js="0">Kick these members from server and send approval request on their behalf (recommended)</word>
+  <word key="brilliantdiscord_migrate_aprqueue_kickwaiting" js="0">Just kick these members</word>
+  <word key="brilliantdiscord_migrate_migrate_notifications" js="0">Migrate Forums notifications?</word>
+  <word key="brilliantdiscord_migrate_groupdata" js="0">Migrate Discord role assignments?</word>
+  <word key="brilliantdiscord_migrate_loginupdate" js="0">Since version 1.0.2, Rich Discord Integration gives you ability to use Discord as a login method on your site. Users can use separate accounts to join the Discord server and to login into your site. For simplicity and stability reasons, Brilliant Discord Integration forces users to use one account for both things.</word>
+  <word key="brilliantdiscord_migrate_step4" js="0">Discord accounts</word>
+  <word key="brilliantdiscord_migrate_refresh" js="0">Refresh page</word>
+  <word key="brilliantdiscord_migrate_links" js="0">Account links to migrate</word>
+  <word key="brilliantdiscord_migrate_ltype_glinks" js="0">Base links (from &quot;Discord Account&quot; tab)</word>
+  <word key="brilliantdiscord_migrate_ltype_llinks" js="0">Login method links (from &quot;Discord&quot; tab)</word>
+  <word key="brilliantdiscord_migrate_ltype_forceselect" js="0">Force users to select one if he has linked two separate accounts</word>
+  <word key="brilliantdiscord_migrate_nolinks" js="0">Don't migrate any links</word>
+  <word key="brilliantdiscord_widget_error_conf" js="0">You need to enable server integration first.</word>
+  <word key="brilliantdiscord_logs" js="0">Logs</word>
+  <word key="brilliantdiscord_logs_message" js="0">Message</word>
+  <word key="brilliantdiscord_logs_code" js="0">Error code</word>
+  <word key="brilliantdiscord_logs_member" js="0">Member</word>
+  <word key="brilliantdiscord_logs_time" js="0">Date/Time</word>
+  <word key="brilliantdiscord_logs_prune" js="0">Prune logs</word>
+  <word key="brilliantdiscord_logs_export" js="0">Export</word>
+  <word key="brilliantdiscord_logs_info" js="0">Detailed information</word>
+  <word key="brilliantdiscord_log_details_reqdata" js="0">Request body</word>
+  <word key="brilliantdiscord_mass_sync_text" js="0">Synchronizing users...</word>
+  <word key="brilliantdiscord_aprqueue" js="0">Approval Queue</word>
+  <word key="brilliantdiscord_aprqueue_target_member" js="0">Member</word>
+  <word key="brilliantdiscord_aprqueue_timestamp" js="0">Requested at</word>
+  <word key="brilliantdiscord_aprqueue_approve" js="0">Approve (until revoked)</word>
+  <word key="brilliantdiscord_aprqueue_accept" js="0">Accept (one time)</word>
+  <word key="brilliantdiscord_aprqueue_deny" js="0">Deny</word>
+  <word key="brilliantdiscord_aprqueue_info" js="0">Member's logs</word>
+  <word key="brilliantdiscord_aprqueue_action_type_requested" js="0">Approval request sent</word>
+  <word key="brilliantdiscord_aprqueue_action_type_accepted" js="0">Accepted member for one time</word>
+  <word key="brilliantdiscord_aprqueue_action_type_accepted_lifetime" js="0">Approved member</word>
+  <word key="brilliantdiscord_aprqueue_action_type_expired" js="0">Approval has expired</word>
+  <word key="brilliantdiscord_aprqueue_action_type_request_denied" js="0">Approval request denied</word>
+  <word key="brilliantdiscord_aprqueue_action_type_denied" js="0">Denied approval</word>
+  <word key="brilliantdiscord_aprqueue_action_type_given_access_lifetime" js="0">Given approval to join the Discord server</word>
+  <word key="brilliantdiscord_aprqueue_logs_type" js="0">Action</word>
+  <word key="brilliantdiscord_aprqueue_logs_member" js="0">Member</word>
+  <word key="brilliantdiscord_aprqueue_logs_timestamp" js="0">Date</word>
+  <word key="brilliantdiscord_success" js="0">Success</word>
+  <word key="brilliantdiscord_request_approval" js="0"><![CDATA[Request approval as <b>%s</b>]]></word>
+  <word key="brilliantdiscord_request_approval_unlinked" js="0">Login to Discord and request approval</word>
+  <word key="brilliantdiscord_invite_approval_requested" js="0">Approval requested.</word>
+  <word key="brilliantdiscord_invite_waiting" js="0">Your approval request is waiting for administrator's action.</word>
+  <word key="brilliantdiscord_aprqueue_action_form_send_message" js="0">Send a private message to this member?</word>
+  <word key="brilliantdiscord_aprqueue_action_form_auto_leave" js="0">Leave this conversation immediately?</word>
+  <word key="brilliantdiscord_aprqueue_action_form_msg_title" js="0">Message title</word>
+  <word key="brilliantdiscord_aprqueue_action_form_msg_content" js="0">Message content</word>
+  <word key="brilliantdiscord_member_disapprove" js="0">Disapprove</word>
+  <word key="brilliantdiscord_notifications" js="0">Notifications</word>
+  <word key="brilliantdiscord_notifications_form_name" js="0">Name</word>
+  <word key="brilliantdiscord_notifications_form_name_desc" js="0">Only used to quickly identify this notification setting in ACP.</word>
+  <word key="brilliantdiscord_notifications_form_webhook" js="0">Webhook</word>
+  <word key="brilliantdiscord_notifications_form_webhook_desc" js="0">Webhooks list is cached for 30 seconds.</word>
+  <word key="brilliantdiscord_webhook_new" js="0">== Create new webhook ==</word>
+  <word key="brilliantdiscord_notifications_form_item_class" js="0">Content type</word>
+  <word key="brilliantdiscord_notifications_form_settings" js="0">Basic settings</word>
+  <word key="brilliantdiscord_notifications_form_display" js="0">Display settings</word>
+  <word key="brilliantdiscord_notifications_form_message_type" js="0">Message type</word>
+  <word key="brilliantdiscord_notifications_form_msgtype_basic" js="0">Basic</word>
+  <word key="brilliantdiscord_notifications_form_msgtype_embed" js="0">Rich Embed</word>
+  <word key="brilliantdiscord_notifications_form_message" js="0">Content</word>
+  <word key="brilliantdiscord_notifications_form_embed_title" js="0">Embed title</word>
+  <word key="brilliantdiscord_notifications_form_embed_title_desc" js="0"><![CDATA[<code>${title}</code> is replaced with content title (or, if it's a comment or review, title of its parent)]]></word>
+  <word key="brilliantdiscord_notifications_form_instant_post" js="0">Notification type</word>
+  <word key="brilliantdiscord_notifications_form_instant_post_instant" js="0"><![CDATA[<strong>Instant Notification</strong>: always sent immediately]]></word>
+  <word key="brilliantdiscord_notifications_form_instant_post_late" js="0"><![CDATA[<strong>Late Notification</strong>: sent after content is approved (or immediately if it doesn't need to be approved)]]></word>
+  <word key="brilliantdiscord_notifications_form_max_characters" js="0">Maximum content size</word>
+  <word key="brilliantdiscord_notifications_form_max_characters_desc" js="0">If exceeded, content will be truncated. Must be less or equal to 1024 because of Discord's limitations.</word>
+  <word key="brilliantdiscord_notifications_form_embed_color" js="0">Embed color</word>
+  <word key="brilliantdiscord_notifiacations_form_tags" js="0">Available tags</word>
+  <word key="brilliantdiscord_form_tag_url" js="0">Content URL</word>
+  <word key="brilliantdiscord_form_tag_author" js="0">Content author name</word>
+  <word key="brilliantdiscord_form_tag_title" js="0">Content title</word>
+  <word key="brilliantdiscord_notifications_form_category_lang" js="0">Language for containers' names</word>
+  <word key="brilliantdiscord_notifications_form_category_lang_desc" js="0">As you may use multiple languages on your site, you have to select which language will be used to display content containers' names on Discord.</word>
+  <word key="brilliantdiscord_notifications_form_default_lang" js="0"><![CDATA[Always use default language<br>]]></word>
+  <word key="brilliantdiscord_notifications_conditions" js="0">Content conditions</word>
+  <word key="brilliantdiscord_notifications_fcond_title" js="0">Conditions for content: %s</word>
+  <word key="brilliantdiscord_notifications_fcond_check_author" js="0">Check author?</word>
+  <word key="brilliantdiscord_notifications_fcond_author" js="0">Author(s)</word>
+  <word key="brilliantdiscord_notifications_fcond_author_desc" js="0">Notification for the content item will be only sent if its author is specified above.</word>
+  <word key="brilliantdiscord_notifications_fcond_check_category" js="0">Check content container (category)?</word>
+  <word key="brilliantdiscord_notifications_fcond_category" js="0">Container (category)</word>
+  <word key="brilliantdiscord_notifications_fcond_category_desc" js="0">Notification for the content item will only be sent if its in one of the containers specified above</word>
+  <word key="brilliantdiscord_notifications_fcond_check_content" js="0">Post notifications only for specified content parent (not container)?</word>
+  <word key="brilliantdiscord_notifications_fcond_check_content_desc" js="0">For example, this options allows you to post notifications about posts only in specified topic(s), or reviews only for specified file(s).</word>
+  <word key="brilliantdiscord_notifications_fcond_content" js="0">Content</word>
+  <word key="brilliantdiscord_notifications_fcond_content_desc" js="0"><![CDATA[Start typing content title in the box above.<br>Notification about the specific content will be only sent if it's posted inside the content specified above.]]></word>
+  <word key="brilliantdiscord_log_details_rescontent" js="0">Response content</word>
+  <word key="brilliantdiscord_log_details_reqhead" js="0">Request headers</word>
+  <word key="brilliantdiscord_log_details_reshead" js="0">Response headers</word>
+  <word key="brilliantdiscord_log_details_trace" js="0">Stack trace</word>
+  <word key="brilliantdiscord_error_inconfigured" js="0"><![CDATA[To access this section of configuration, please go to the <a href="{internal.app=brilliantdiscord&module=general&controller=configuration}">general configuration</a> first.]]></word>
+  <word key="brilliantdiscord_error_inconfigured_guild" js="0"><![CDATA[To access this section of configuration, please <a href="{internal.app=brilliantdiscord&module=general&controller=configuration&do=advancedSetup&gotoguild=1}">enable server integration</a> first.]]></word>
+  <word key="brilliantdiscord_error_whlimit" js="0">Discord webhook limit for this channel was exceeded.</word>
+  <word key="brilliantdiscord_webhooks_noperm" js="0">Bot has no permission to access webhooks' settings on your Discord server. The required permission is MANAGE_WEBHOOKS.</word>
+  <word key="brilliantdiscord_migration" js="0">Migrating from Rich Discord Integration</word>
+  <word key="brilliantdiscord_migration_process_start" js="0">Starting migration...</word>
+  <word key="brilliantdiscord_migration_progress" js="0">Starting migration...</word>
+  <word key="brilliantdiscord_migrate_summary" js="0">Summary</word>
+  <word key="brilliantdiscord_migrate_summary_desc" js="0">The following settings are going to be migrated from Rich Discord Integration:</word>
+  <word key="brilliantdiscord_migrate_summary_warn" js="0">This action may be partially irreversible. Rich Discord Integration will be disabled after clicking this button.</word>
+  <word key="brilliantdiscord_migrate_proceed" js="0">Proceed</word>
+  <word key="brilliantdiscord_migration_step_authdata" js="0">Authorization data</word>
+  <word key="brilliantdiscord_migration_step_data" js="0">Miscellaneous settings (general role, approval queue state)</word>
+  <word key="brilliantdiscord_migration_step_grouproles" js="0">Group settings (roles)</word>
+  <word key="brilliantdiscord_migration_step_links" js="0">Discord account links</word>
+  <word key="brilliantdiscord_migration_step_notifications" js="0">Notifications</word>
+  <word key="brilliantdiscord_migration_step_aprqueue" js="0">Approval Queue (members awaiting for approval)</word>
+  <word key="brilliantdiscord_migration_authdata" js="0"><![CDATA[Migrated authorization data & miscellaneous settings]]></word>
+  <word key="brilliantdiscord_migration_grouproles" js="0">Migrated group settings</word>
+  <word key="brilliantdiscord_migration_links" js="0">Migrated account links</word>
+  <word key="brilliantdiscord_migration_notifications" js="0">Migrated notifications</word>
+  <word key="brilliantdiscord_migration_aprqueue" js="0">Migrating Approval Queue...</word>
+  <word key="brilliantdiscord_member_ratelimit_err" js="0"><![CDATA[Sorry, it's impossible to display that information now.<br>Please try again in %s.]]></word>
+  <word key="brilliantdiscord_error_approval_disabled" js="0"><![CDATA[You need to <a href="{internal.app=brilliantdiscord&module=manage&controller=behavior}">enable approval queue</a> first.]]></word>
+  <word key="brilliantdiscord_error_nosyncperm" js="0">Bot has no permission to synchronize that member.</word>
+  <word key="brilliantdiscord_behavior_form_sync_nicknames" js="0">Enable nickname synchronization?</word>
+  <word key="brilliantdiscord_generic_error" js="1">Looks like something went wrong. Please try again later.</word>
+  <word key="brilliantdiscord_no_guilds_found" js="1">No guilds found. You can add one by clicking the button above.</word>
+ </app>
+</language>

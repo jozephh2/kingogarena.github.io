@@ -1,0 +1,18 @@
+{
+    "admin": {
+        "general": {
+            "default_controller": "",
+            "protected": 0
+        },
+        "manage": {
+            "default_controller": "",
+            "protected": 0
+        }
+    },
+    "front": {
+        "xinvites": {
+            "default_controller": "",
+            "protected": 0
+        }
+    }
+}

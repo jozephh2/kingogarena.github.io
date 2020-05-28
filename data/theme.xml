@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme name="Default" author_name="Invision Power Services, Inc" author_url="https://www.invisioncommunity.com">
+ <template template_group="configuration" template_name="allDone" template_data="$overridesOld = FALSE" template_location="admin" template_app="brilliantdiscord"><![CDATA[<section class='ipsType_center ipsPad ipsBox'>
+    <br>
+    <i class='ipsType_huge fa fa-check-circle'></i>
+    <h1 class='ipsType_veryLarge'>{lang="brilliantdiscord_all_done"}</h1>
+    <p class='ipsType_large'>
+        {lang="brilliantdiscord_all_done_desc"}
+        {{if $overridesOld}}
+            <br>{lang="brilliantdiscord_all_done_desc_overrides"}
+        {{endif}}
+    </p>
+</section>]]></template>
+ <template template_group="configuration" template_name="appInfo" template_data="$data" template_location="admin" template_app="brilliantdiscord"><![CDATA[{{if $data['error'] == NULL}}
+<div class="ipsMessage ipsMessage_success" style="margin: 15px">
+    {lang="brilliantdiscord_status_ok"}
+</div>
+{{else}}
+<div class="ipsMessage ipsMessage_error" style="margin: 15px">
+    <b>{lang="brilliantdiscord_status_found_problems"}</b>
+    <br>
+    {{if $data['error'] == 'generic'}}
+        {lang="brilliantdiscord_status_bad_token"}
+    {{elseif $data['error'] == 'badtoken'}}
+        {lang="brilliantdiscord_status_bad_token"}
+    {{elseif $data['error'] == 'glost'}}
+        {lang="brilliantdiscord_status_guild_lost"}
+    {{elseif $data['error'] == 'perms'}}
+    {{$permsMissing = '<ul><li>' . implode('</li><li>', $data['missingPerms']) . '</li></ul>';}}
+        {lang="brilliantdiscord_error_permissions" htmlsprintf="$permsMissing"}
+    {{endif}}
+</div>
+{{endif}}]]></template>
+ <template template_group="configuration" template_name="approvalMemberDisplay" template_data="$member, $mf" template_location="admin" template_app="brilliantdiscord"><![CDATA[<a href='{$mf($member->member_id)|raw}' target='_blank'>
+    <div class="ipsUserPhoto ipsUserPhoto_tiny">
+        <img src='{$member->photo}' alt='' referrerpolicy='origin-when-cross-origin'>
+    </div>
+    &nbsp;&nbsp;{$member->name}
+</a>]]></template>
+ <template template_group="configuration" template_name="begin" template_data="" template_location="admin" template_app="brilliantdiscord"><![CDATA[<section class='ipsBox'>
+    {{if \IPS\Application::appIsEnabled('richdiscord') && \IPS\Application::load('richdiscord')->isConfigured()}} <!-- \IPS\Application::appIsEnabled('richdiscord') && \IPS\Application::load('richdiscord')->isConfigured() -->
+        {template="info" group="configuration" app="brilliantdiscord" params="\IPS\Member::loggedIn()->language()->addToStack('brilliantdiscord_configuration_richdiscord')"}
+    {{endif}}
+    <div class="ipsType_center ipsPad">
+    <br>
+    <i class='ipsType_huge fa fa-cogs'></i>
+    <h1 class='ipsType_veryLarge'>{lang="brilliantdiscord_configure"}</h1>
+    <p class='ipsType_large'>
+        {lang="brilliantdiscord_configure_description"}
+    </p>
+    <hr class="ipsHr">
+    <div>
+        {{if false}}
+        <!-- Coming soon (or never) -->
+        <a href="#" class="ipsButton ipsButton_positive ipsButton_veryLarge">{lang="brilliantdiscord_configure_start_wizard"}</a>
+        <span class="ipsType_large">
+            <span class="brdsOrSeparator">{lang="or"}</span>
+        </span>
+        {{endif}}
+        <a href="{url="app=brilliantdiscord&module=general&controller=configuration&do=advancedSetup&_new=1"}" class="ipsButton ipsButton_positive ipsButton_veryLarge">{lang="brilliantdiscord_configure_start_advanced"}</a>
+    </div>
+    </div>
+</section>]]></template>
+ <template template_group="configuration" template_name="guildHelper" template_data="$field, $exchangeURL='', $addURL='', $selected='-1'" template_location="admin" template_app="brilliantdiscord"><![CDATA[<input type="hidden" name="{$field->name}" value="__EMPTY">
+<div class="brdsGuildHelper" data-selected="{$selected}" data-controller="brilliantdiscord.admin.config.guildHelper" data-field-name="{$field->name}" data-exchange-url="{$exchangeURL|raw}" id="{$field->id}">
+    <header class="ipsAreaBackground">
+        <h2 class="ipsType_reset ipsType_large">{lang="brilliantdiscord_guilds_select"}</h2>
+        <div class="ipsPos_right">
+            <ul class='ipsButton_split'>
+                <li>
+                    <a data-action="refreshGuilds" class='ipsButton ipsButton_verySmall ipsButton_link'>
+                        <i class="fa fa-refresh"></i>
+                        <span class="ipsResponsive_hidePhone ipsResponsive_hideTablet">&nbsp;{lang="brilliantdiscord_guilds_refresh"}</span>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="{$addURL|raw}" class='ipsButton ipsButton_verySmall ipsButton_primary'>
+                        <i class="fa fa-plus"></i>
+                        <span class="ipsResponsive_hidePhone ipsResponsive_hideTablet">&nbsp;{lang="brilliantdiscord_guilds_add"}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div id="brdsGuildsList">
+
+    </div>
+</div>]]></template>
+ <template template_group="configuration" template_name="info" template_data="$content, $raw=TRUE, $type='information'" template_location="admin" template_app="brilliantdiscord"><![CDATA[<div class="ipsMessage ipsMessage_{$type}" style="margin: 15px">
+    {{if $raw}}{$content|raw}{{else}}{$content}{{endif}}
+</div>]]></template>
+ <template template_group="configuration" template_name="logDetailed" template_data="$log" template_location="admin" template_app="brilliantdiscord"><![CDATA[<div class="ipsPad">
+    <div class="ipsSpacer_bottom">
+        <h3 class="ipsType_minorHeading">{lang="brilliantdiscord_log_details_rescontent"}</h3>
+        <textarea rows="8" style="font-family: monospace;" readonly>{$log['request_data']['content']}</textarea>
+    </div>
+    <div class="ipsSpacer_bottom">
+        <h3 class="ipsType_minorHeading">{lang="brilliantdiscord_log_details_reqdata"}</h3>
+        <textarea rows="8" style="font-family: monospace;" readonly>{$log['request_data']['req_data']}</textarea>
+    </div>
+    <div class="ipsSpacer_bottom">
+        <h3 class="ipsType_minorHeading">{lang="brilliantdiscord_log_details_reqhead"}</h3>
+        <textarea rows="8" style="font-family: monospace;" readonly>{{foreach $log['request_data']['req_head'] as $k=>$v}}{$k}: {$v}{expression="PHP_EOL"}{{endforeach}}</textarea>
+    </div>
+    <div class="ipsSpacer_bottom">
+        <h3 class="ipsType_minorHeading">{lang="brilliantdiscord_log_details_reshead"}</h3>
+        <textarea rows="8" style="font-family: monospace;" readonly>{{foreach $log['request_data']['res_head'] as $k=>$v}}{$k}: {$v}{expression="PHP_EOL"}{{endforeach}}</textarea>
+    </div>
+    <div class="ipsSpacer_bottom">
+        <h3 class="ipsType_minorHeading">{lang="brilliantdiscord_log_details_trace"}</h3>
+        <textarea rows="8" style="font-family: monospace;" readonly>{$log['trace']}</textarea>
+    </div>
+</div>]]></template>
+ <template template_group="configuration" template_name="msgInput" template_data="$textarea, $tags" template_location="admin" template_app="brilliantdiscord"><![CDATA[<div class="ipsColumns ipsColumns_collapsePhone ipsColumns_collapseTablet" data-role="patchworkItem">
+    <div class="ipsGrid_span1944 ipsColumn ipsColumn_fluid">{$textarea|raw}</div>
+    <div class="ipsGrid_span1944 ipsColumn_medium ipsColumn ipsAreaBackground_light ipsComposeArea_sidebar ipsComposeArea_sidebarOpen">
+        <h3 class='ipsAreaBackground ipsPad_half ipsType_reset'>{lang="brilliantdiscord_notifiacations_form_tags"}</h3>
+        <span class='ipsType_light'>{lang="brilliantdiscord_notifications_form_tags_info"}</span>
+        <ul class="ipsList_reset ipsScrollbar brdsTagsList">
+            {{foreach $tags as $tag}}
+                <li class="ipsPad_half">
+                    <label>%{$tag}%</label>
+                    <div class="ipsType_light ipsType_small">{lang="brilliantdiscord_form_tag_$tag"}</div>
+                </li>
+            {{endforeach}}
+        </ul>
+    </div>
+</div>]]></template>
+ <template template_group="invites" template_name="accept" template_data="$invite, $url, $handler, $data, $loginUrl, $registerUrl, $requestApproval, $approvalRequested" template_location="front" template_app="brilliantdiscord"><![CDATA[{{ $link = $handler->link(); }}
+{{ $name = NULL; try { $name = $handler->userProfileName(\IPS\Member::loggedIn()); } catch ( \IPS\Login\Exception $e ) { $link = NULL; } }}
+<div class="ipsBox brdsInvite" data-controller="core.global.core.framebust">
+    <div class="ipsPad ipsType_center">
+        <h1 class='ipsType_minorHeading ipsSpacer_bottom ipsSpacer_double'>{lang="brilliantdiscord_invite_heading" sprintf="\IPS\Settings::i()->board_name"}</h1>
+        <span class='ipsUserPhoto ipsUserPhoto_large ipsSpacer_bottom ipsSpacer_double ipsCursor_default'>
+            {{if $data['avatar'] != NULL}}
+                <img alt='{lang="brilliantdiscord_server_icon"}' src='{$data["avatar"]|raw}'>
+            {{else}}
+                <div class="brdsInvite_guildIconPlaceholder" alt='{lang="brilliantdiscord_server_icon"}'>{$data['letters']}</div>
+            {{endif}}
+        </span>
+        <div>
+            <strong class='ipsOnlineStatus ipsOnlineStatus_online'><i class='fa fa-circle'></i> {lang="brilliantdiscord_members_online" sprintf="$data['online']"}</strong>
+            <strong class='ipsOnlineStatus ipsOnlineStatus_offline'><i class='fa fa-circle'></i> {lang="brilliantdiscord_members_overall" sprintf="$data['overall']"}</strong>
+        </div>
+        <h1 class='ipsType_veryLarge ipsType_center'>{$data['name']}</h1>
+        <h2 class='ipsType_minorHeading'>{{if $invite->expiration == -1}}{lang="brilliantdiscord_invite_expires_never"}{{else}}{lang="brilliantdiscord_invite_expires_in" sprintf="\IPS\DateTime::formatInterval(\IPS\DateTime::ts($invite->expiration)->diff(\IPS\DateTime::create()))"}{{endif}}</h2>
+    </div>
+    <form action="{$url}" method="post">
+        <input type="hidden" name="csrfKey" value="{expression="\IPS\Session::i()->csrfKey"}">
+        <div class="ipsAreaBackground ipsPad ipsType_center">
+            {{if !member.member_id}}
+                <span class="ipsType_light">{lang="brilliantdiscord_invite_guest_message" sprintf="$loginUrl, $registerUrl"}</span>
+            {{elseif !$invite->canView()}}
+                <span class="ipsType_light">{lang="brilliantdiscord_invite_use_noperm"}</span>
+            {{elseif member.discordMember() != NULL}}
+                <span class="ipsType_light">{lang="brilliantdiscord_invite_already_member"}</span>
+            {{elseif $approvalRequested}}
+                <span class="ipsType_light">{lang="brilliantdiscord_invite_waiting"}</span>
+            {{else}}
+                <a href='{setting="base_url"}' class="ipsButton ipsButton_link">{lang="cancel"}</a>
+                <button type="submit" class="ipsButton ipsButton_primary">
+                    {{if $requestApproval}}
+                        {{if $link == NULL}}
+                            {lang="brilliantdiscord_request_approval_unlinked"}
+                        {{else}}
+                            {lang="brilliantdiscord_request_approval" sprintf="$name"}
+                        {{endif}}
+                    {{elseif $link == NULL}}
+                        {lang="brilliantdiscord_invite_accept_unlinked"}
+                    {{else}}
+                        {lang="brilliantdiscord_invite_accept" sprintf="$name"}
+                    {{endif}}</button>
+                {{if $link == NULL}}
+                    <div class="ipsSpacer_top"><span class="ipsType_light">{lang="brilliantdiscord_info_account_link"}</span></div>
+                {{endif}}
+            {{endif}}
+        </div>
+    </form>
+</div>]]></template>
+ <template template_group="management" template_name="memberBlock" template_data="$member, $accountAccess, $guildMember, $links" template_location="admin" template_app="brilliantdiscord"><![CDATA[{{ $link = $member->discordLink(); }}
+{{ $handler = \IPS\Login\Handler::findMethod('IPS\brilliantdiscord\LoginHandler'); }}
+<div class='ipsBox ipsSpacer_bottom ipsSpacer_double'>
+    <h2 class='ipsBox_titleBar ipsType_reset'>
+        {lang="brilliantdiscord_member_info"}
+    </h2>
+    <div class='ipsPad ipsClearfix'>
+        {{if $link == NULL}}
+            <span class='ipsType_light'>{lang="brilliantdiscord_member_not_linked"}</span>
+        {{else}}
+            <h3 class="ipsType_minorHeading">{lang="brilliantdiscord_member_status"}</h3>
+            <ul class="ipsDataList ipsDataList_reducedSpacing">
+                <li class="ipsDataItem">
+                    <span class="ipsDataItem_generic ipsDataItem_size3 ipsType_break">
+                        <strong>{lang="brilliantdiscord_member_account_link"}</strong>
+                    </span>
+                    <div class="ipsDataItem_generic">
+                        {{if $accountAccess}}
+                            {lang="brilliantdiscord_member_account_ok"}
+                        {{else}}
+                            {lang="profilesync_reauth_needed"}
+                        {{endif}}
+                    </div>
+                </li>
+                <li class="ipsDataItem">
+                    <span class="ipsDataItem_generic ipsDataItem_size3 ipsType_break">
+                        <strong>{lang="brilliantdiscord_member_guild"}</strong>
+                    </span>
+                    <div class="ipsDataItem_generic">
+                        {{if $guildMember == NULL}}
+                            {lang="no"}
+                        {{else}}
+                            {lang="yes"}
+                        {{endif}}
+                    </div>
+                </li>
+            </ul>
+            <h3 class="ipsType_minorHeading">{lang="brilliantdiscord_member_actions"}</h3>
+            {{ $count = 0; }}
+            {{if member.hasAcpRestriction( 'core', 'members', 'member_edit' ) and (member.hasAcpRestriction( 'core', 'members', 'member_edit_admin' ) or !$member->isAdmin() )}}
+                {{if $guildMember}}
+                    {{ $count++; }}
+                    <a href='{$links["sync"]|raw}' class="ipsButton ipsButton_positive ipsButton_verySmall" data-ipsTooltip title='{lang="brilliantdiscord_member_sync"}'><i class="fa fa-refresh"></i></a>
+                {{endif}}
+                {{if $accountAccess}} {{$count++;}}
+                    {{if $guildMember == NULL}}
+                        <a href='{$links["force_join"]|raw}' class="ipsButton ipsButton_positive ipsButton_verySmall" data-ipsTooltip title='{lang="brilliantdiscord_member_force_join"}'><i class="fa fa-sign-in"></i></a>
+                    {{else}}
+                        <a href='{$links["kick"]|raw}' class="ipsButton ipsButton_negative ipsButton_verySmall" data-ipsTooltip title='{lang="brilliantdiscord_member_kick"}'><i class="fa fa-arrow-left"></i></a>
+                    {{endif}}
+                {{endif}}
+                {{if $member->discordApprovalNeeded()}} {{$count++;}}
+                    {{if \IPS\brilliantdiscord\Approval::access($member) != \IPS\brilliantdiscord\Approval::ACCESS_LIFETIME}}
+                        <a href='{$links["approve"]|raw}' class="ipsButton ipsButton_positive ipsButton_verySmall" data-ipsTooltip title='{lang="brilliantdiscord_member_approve"}'><i class="fa fa-check"></i></a>
+                    {{else}}
+                        <a href='{$links["disapprove"]|raw}' class="ipsButton ipsButton_negative ipsButton_verySmall" data-ipsTooltip title='{lang="brilliantdiscord_member_disapprove"}'><i class="fa fa-times"></i></a>
+                    {{endif}}
+                {{endif}}
+            {{endif}}
+            {{if $member->discordApprovalNeeded()}} {{$count++;}}
+                <a data-ipsDialog data-ipsDialog-title='{lang="brilliantdiscord_member_approval_logs"}' href='{$links["logs"]|raw}' class="ipsButton ipsButton_normal ipsButton_verySmall" data-ipsTooltip title='{lang="brilliantdiscord_member_approval_logs"}'><i class="fa fa-list"></i></a>
+            {{endif}}
+            {{if !$count}}
+                <em class="ipsType_light">{lang="brilliantdiscord_member_no_actions"}</em>
+            {{endif}}
+        {{endif}}
+    </div>
+</div>]]></template>
+ <template template_group="management" template_name="memberBlockRatelimit" template_data="$exception" template_location="admin" template_app="brilliantdiscord"><![CDATA[<div class='ipsBox ipsSpacer_bottom ipsSpacer_double'>
+    <h2 class='ipsBox_titleBar ipsType_reset'>
+        {lang="brilliantdiscord_member_info"}
+    </h2>
+    <div class="ipsPad ipsClearfix ipsType_center">
+        <div class="ipsSpacer_bottom ipsSpacer_half ipsType_light ipsType_veryLarge">
+            <i class="fa fa-warning"></i>
+        </div>
+        <span class="ipsType_normal ipsType_light">
+            {lang="brilliantdiscord_member_ratelimit_err" sprintf="$exception->timeLeft()"}
+        </span>
+    </div>
+</div>]]></template>
+ <template template_group="migrate" template_name="migratePermissions" template_data="$field, $gname, $permissions" template_location="admin" template_app="brilliantdiscord"><![CDATA[<input type="hidden" name="{$field->name}" value='{expression="json_encode($permissions)" raw="true"}'>
+<div class="brdsGuildHelper" id="{$field->id}">
+    <header class="ipsAreaBackground">
+        <h2 class="ipsType_reset ipsType_large">{$gname}</h2>
+    </header>
+    <div id="brdsGuildsList">
+        {{if !$permissions}}
+            <div class='ipsPad'><span class='ipsType_light'>{lang="brilliantdiscord_guild_perms_ok"}</span></div>
+        {{else}}
+            <div class='ipsField_fieldList_content ipsPad_half'>
+                <ul>
+                    {{foreach $permissions as $perm}}
+                        <li class='brdsListFail'>{lang="brilliantdiscord_guild_missing_perm" sprintf="$perm"}</li>
+                    {{endforeach}}
+                </ul>
+            </div>
+        {{endif}}
+    </div>
+</div>]]></template>
+ <template template_group="migrate" template_name="richdiscordInfo" template_data="$data" template_location="admin" template_app="brilliantdiscord"><![CDATA[<div>
+    <ul class='ipsDataList ipsDataList_reducedSpacing brdsAppInfo'>
+        <li class='ipsDataItem'>
+            <div class='ipsDataItem_generic ipsDataItem_size1'>
+                <img src="{{if $data["avatar"] == NULL}}{resource="default_photo.png" app="core" location="global"}{{else}}{$data["avatar"]|raw}{{endif}}" class="ipsUserPhoto ipsUserPhoto_small">
+            </div>
+            <div class='ipsDataItem_main'>
+                <p class='ipsType_normal ipsType_reset acpMemberView_integrations_text'>
+                    {$data['name']}<br>
+                    <span class='ipsType_medium ipsType_light'>{lang="brilliantdiscord_app_id" sprintf="$data['id']"}</span><br>
+                    <span class='ipsType_medium ipsType_light'>{lang="brilliantdiscord_app_owner" sprintf="$data['owner_tag']"}</span>
+                </p>
+            </div>
+        </li>
+    </ul>
+</div>]]></template>
+ <template template_group="migrate" template_name="summary" template_data="$data" template_location="admin" template_app="brilliantdiscord"><![CDATA[<section class='ipsType_center ipsPad ipsBox'>
+    <br>
+    <i class='ipsType_huge fa fa-bars'></i>
+    <h1 class='ipsType_veryLarge'>{lang="brilliantdiscord_migrate_summary"}</h1>
+    <p class='ipsType_large'>
+        {lang="brilliantdiscord_migrate_summary_desc"}
+    </p>
+    <div class="ipsType_large brdsMigrateSummary">
+        <ul>
+            {{foreach $data as $step}}
+            <li>{lang="brilliantdiscord_migration_step_$step"}</li>
+            {{endforeach}}
+        </ul>
+    </div>
+    <p class='ipsType_large'>
+        {lang="brilliantdiscord_migrate_summary_warn"}
+    </p>
+</section>
+]]></template>
+ <template template_group="widgets" template_name="discordWidget" template_data="$url, $inviteUrl=NULL" template_location="front" template_app="brilliantdiscord"><![CDATA[<div class="ipsType_center">
+    {{if $inviteUrl == NULL}}
+        <img class="ipsImage" src="{$url|raw}" alt='{lang="brilliantdiscord_widget"}'>
+    {{else}}
+        <a href="{$inviteUrl|raw}" rel="nofollow">
+            <img class="ipsImage" src="{$url|raw}" alt='{lang="brilliantdiscord_widget"}'>
+        </a>
+    {{endif}}
+</div>
+]]></template>
+ <css css_location="global" css_app="brilliantdiscord" css_attributes="" css_path="." css_name="button.css">/*.brilliantdiscord_discordButton .ipsSocial_icon {&#13;
+    height: 32px;&#13;
+    width: 32px;&#13;
+    background-image: url( {resource=&quot;discord_logo_white.png&quot; app=&quot;brilliantdiscord&quot; location=&quot;front&quot;} );&#13;
+    background-size: 18px 18px;&#13;
+    background-repeat: no-repeat;&#13;
+    background-position: center center;&#13;
+}&#13;
+.brilliantdiscord_discordButton .ipsSocial_icon .fa {&#13;
+    display: none !important;&#13;
+}&#13;
+&#13;
+.brilliantdiscord_discordButton .ipsSocial_text {&#13;
+    line-height: 32px;&#13;
+}*/&#13;
+&#13;
+@font-face {&#13;
+    font-family: &quot;bdi-fa5-discord&quot;;&#13;
+    src:url('{url=&quot;applications/brilliantdiscord/interface/fonts/bdi-fa5-discord.eot&quot; base=&quot;none&quot; noprotocol=&quot;true&quot;}');&#13;
+    src:url('{url=&quot;applications/brilliantdiscord/interface/fonts/bdi-fa5-discord.eot#iefix&quot; base=&quot;none&quot; noprotocol=&quot;true&quot;}') format(&quot;embedded-opentype&quot;),&#13;
+    url('{url=&quot;applications/brilliantdiscord/interface/fonts/bdi-fa5-discord.woff&quot; base=&quot;none&quot; noprotocol=&quot;true&quot;}') format(&quot;woff&quot;),&#13;
+    url('{url=&quot;applications/brilliantdiscord/interface/fonts/bdi-fa5-discord.ttf&quot; base=&quot;none&quot; noprotocol=&quot;true&quot;}') format(&quot;truetype&quot;),&#13;
+    url('{url=&quot;applications/brilliantdiscord/interface/fonts/bdi-fa5-discord.svg#bdi-fa5-discord&quot; base=&quot;none&quot; noprotocol=&quot;true&quot;}') format(&quot;svg&quot;);&#13;
+    font-weight: normal;&#13;
+    font-style: normal;&#13;
+}&#13;
+&#13;
+.bdi-fa-fab-discord {&#13;
+    font-family: &quot;bdi-fa5-discord&quot; !important;&#13;
+}&#13;
+&#13;
+.brilliantdiscord_discordButton .bdi-fa-fab-discord {&#13;
+    vertical-align: middle;&#13;
+}&#13;
+&#13;
+.bdi-fa-fab-discord:before {&#13;
+    content: &quot;\60&quot;;&#13;
+}</css>
+ <css css_location="admin" css_app="brilliantdiscord" css_attributes="" css_path="general" css_name="begin.css">span.brdsOrSeparator {&#13;
+    margin: 15px;&#13;
+}</css>
+ <css css_location="admin" css_app="brilliantdiscord" css_attributes="" css_path="general" css_name="misc.css"><![CDATA[li.brdsListSuccess {
+    color: #4A7C20;
+}
+li.brdsListSuccess:before {
+    font-family: 'FontAwesome';
+    content: '\f00c';
+    margin:0 8px 0 -24px;
+}
+
+li.brdsListFail {
+    color: #A52638;
+}
+li.brdsListFail:before {
+    font-family: 'FontAwesome';
+    content: '\f057';
+    margin:0 9px 0 -23px;
+}
+
+.brdsGuildHelper > header {
+    padding: 10px 15px;
+}
+.brdsGuildHelper > header > h2[class] {
+    line-height: 30px;
+    display: inline-block;
+}
+
+.brdsGuildHelper_dummy {
+    height: 100px;
+}
+
+#brdsGuildsList .ipsCustomInput {
+    line-height: 25px;
+}
+#brdsGuildsList h2 {
+    margin-left: 5px;
+    display: inline-block;
+}
+
+#brdsGuildsList .ipsField_fieldList_content {
+    margin: 5px;
+    margin-bottom: 0;
+}
+
+#brdsGuildsList ul {
+    list-style-type: none;
+    padding-left: 45px;
+}
+
+.brdsMessageFieldSize {
+    min-height: 200px;
+}
+
+html[dir="ltr"] .brdsMigrateSummary {
+    text-align: left;
+}
+
+html[dir="rtl"] .brdsMigrateSummary {
+    text-align: right;
+}
+
+.brdsMigrateSummary {
+    display: inline-block;
+}
+
+.brdsMigrateSummary {
+    padding: 0;
+}]]></css>
+ <css css_location="admin" css_app="brilliantdiscord" css_attributes="" css_path="general" css_name="richdiscord.css"><![CDATA[.brdsAppInfo .ipsDataItem_main {
+    vertical-align: middle !important;
+}
+
+html[dir="ltr"] .brdsAppInfo .ipsDataItem_main > p {
+    padding-left: 10px;
+}
+
+html[dir="rtl"] .brdsAppInfo .ipsDataItem_main > p {
+    padding-right: 10px;
+}
+
+#form_brilliantdiscord_migrate_app_info .ipsFieldRow_content {
+    padding-top: 0;
+    padding-bottom: 0;
+}]]></css>
+ <css css_location="front" css_app="brilliantdiscord" css_attributes="" css_path="global" css_name="invite.css">.brdsInvite .ipsOnlineStatus_online {&#13;
+    margin-right: 10px;&#13;
+}&#13;
+&#13;
+.brdsInvite .brdsInvite_guildIconPlaceholder {&#13;
+    display: inline-block;&#13;
+    width: 90px;&#13;
+    height: 90px;&#13;
+    border-radius: 50%;&#13;
+    background-color: #2f2f2f;&#13;
+    line-height: 90px;&#13;
+    font-size: 28px;&#13;
+    color: #fff;&#13;
+    font-weight: 100;&#13;
+    -webkit-user-select: none;&#13;
+    -moz-user-select: none;&#13;
+    -ms-user-select: none;&#13;
+    user-select: none;&#13;
+}</css>
+</theme>

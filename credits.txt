@@ -1,0 +1,2 @@
+This application uses:
+ - 'discord' icon from Font Awesome 5: https://fontawesome.com/license

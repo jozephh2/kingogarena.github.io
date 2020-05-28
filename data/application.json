@@ -1,0 +1,8 @@
+{
+    "application_title": "Brilliant Discord Integration",
+    "app_author": "Software Factory",
+    "app_directory": "brilliantdiscord",
+    "app_protected": 0,
+    "app_website": "http:\/\/softwarefactory.pl",
+    "app_update_check": "http:\/\/softwarefactory.pl\/ips\/brilliantdiscord\/updatecheck.php"
+}

@@ -1,0 +1,22 @@
+{
+    "1": {
+        "method": "addColumn",
+        "params": [
+            "brilliantdiscord_notifications",
+            {
+                "name": "instant_post",
+                "type": "BIT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": false,
+                "default": "1",
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            }
+        ]
+    }
+}

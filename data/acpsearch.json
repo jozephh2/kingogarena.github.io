@@ -1,0 +1,24 @@
+{
+    "app=brilliantdiscord&module=general&controller=configuration": {
+        "lang_key": "menu__brilliantdiscord_general_configuration",
+        "restriction": "configuration_manage",
+        "keywords": [
+            "brilliant discord configuration"
+        ]
+    },
+    "app=brilliantdiscord&module=manage&controller=behavior": {
+        "lang_key": "menu__brilliantdiscord_manage_behavior",
+        "restriction": "brds_behavior_manage",
+        "keywords": [
+            "discord behavior"
+        ]
+    },
+    "app=brilliantdiscord&module=manage&controller=xinvites": {
+        "lang_key": "menu__brilliantdiscord_manage_xinvites",
+        "restriction": "brds_xinvites_manage",
+        "keywords": [
+            "discord invites",
+            "magic invites"
+        ]
+    }
+}

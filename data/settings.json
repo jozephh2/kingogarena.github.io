@@ -1,0 +1,26 @@
+[
+    {
+        "key": "brilliantdiscord_cid",
+        "default": ""
+    },
+    {
+        "key": "brilliantdiscord_configured",
+        "default": "0"
+    },
+    {
+        "key": "brilliantdiscord_configured_guild",
+        "default": "0"
+    },
+    {
+        "key": "brilliantdiscord_guild",
+        "default": "-1"
+    },
+    {
+        "key": "brilliantdiscord_secret",
+        "default": ""
+    },
+    {
+        "key": "brilliantdiscord_token",
+        "default": ""
+    }
+]

@@ -1,0 +1,26 @@
+{
+    "general": {
+        "brds_configuration": {
+            "brds_configuration_manage": "brds_configuration_manage",
+            "brds_configuration_clear_data": "brds_configuration_clear_data"
+        }
+    },
+    "manage": {
+        "brds_xinvites": {
+            "brds_xinvites_manage": "brds_xinvites_manage"
+        },
+        "brds_behavior": {
+            "brds_behavior_manage": "brds_behavior_manage"
+        },
+        "brds_logs": {
+            "brds_logs_manage": "brds_logs_manage"
+        },
+        "brds_aprqueue": {
+            "brds_aprqueue_manage": "brds_aprqueue_manage",
+            "brds_aprqueue_give_lifetime": "brds_aprqueue_give_lifetime"
+        },
+        "brds_notifications": {
+            "brds_notifications_manage": "brds_notifications_manage"
+        }
+    }
+}

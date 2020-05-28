@@ -1,0 +1,13 @@
+{
+  "topLevel": "discord",
+  "pages": {
+    "invite_accept": {
+      "friendly": "invite/{@icode}/accept",
+      "real": "app=brilliantdiscord&module=xinvites&controller=invite&do=accept"
+    },
+    "invite": {
+      "friendly": "invite/{@icode}",
+      "real": "app=brilliantdiscord&module=xinvites&controller=invite"
+    }
+  }
+}
